@@ -17,7 +17,7 @@ year_list = list(df.year.unique())[::-1]
 selected_year = st.number_input('Enter a year',
                                  placeholder='Enter a  year from 2010-2019',
                                  value=None,
-                                 step='int')
+                                 step=int)
 
 # Data processing
 if selected_year:
