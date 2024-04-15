@@ -20,4 +20,4 @@ df_selected_year = df[df.year == selected_year]
 
 df_selected_year
 
-st.write(df_selected_year.year.dtype))
+st.write(df_selected_year.year.dtype)
