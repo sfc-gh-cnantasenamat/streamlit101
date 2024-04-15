@@ -19,3 +19,5 @@ selected_year = st.selectbox('Select a year', year_list)
 df_selected_year = df[df.year == selected_year]
 
 df_selected_year
+
+st.write(type(df._selected_year.year))
