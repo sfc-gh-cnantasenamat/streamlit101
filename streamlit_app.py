@@ -17,5 +17,6 @@ year_list = list(df.year.unique())[::-1]
 selected_year = st.number_input('Enter a year')
 
 # Data processing
-df_selected_year = df[df.year == selected_year]
-df_selected_year
+if selected_year:
+  df_selected_year = df[df.year == selected_year]
+  df_selected_year
