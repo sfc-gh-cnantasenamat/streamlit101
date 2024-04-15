@@ -15,7 +15,8 @@ year_list = list(df.year.unique())[::-1]
 
 # selected_year = st.selectbox('Select a year', year_list)
 selected_year = st.number_input('Enter a year',
-                                 placeholder='Enter a  year from 2010-2019')
+                                 placeholder='Enter a  year from 2010-2019',
+                                 format='string')
 
 # Data processing
 if selected_year:
