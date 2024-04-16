@@ -19,6 +19,6 @@ selected_year = st.number_input('Enter a year',
                                  value=2019)
 
 # Data processing
-if selected_year:
-  df_selected_year = df[df.year == selected_year]
-  df_selected_year
+#if selected_year:
+#  df_selected_year = df[df.year == selected_year]
+#  df_selected_year
