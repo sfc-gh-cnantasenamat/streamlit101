@@ -1,6 +1,7 @@
 # Import libraries
 import streamlit as st
 import pandas as pd
+import plotly.express as px
 
 # st.write('Hello world!')
 
@@ -20,5 +21,5 @@ selected_year = st.number_input('Enter a year',
 
 # Data processing
 #if selected_year:
-#  df_selected_year = df[df.year == selected_year]
-#  df_selected_year
+df_selected_year = df[df.year == selected_year]
+df_selected_year
