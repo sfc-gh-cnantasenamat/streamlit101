@@ -22,3 +22,5 @@ selected_year = st.number_input('Enter a year',
 # Display data subset
 df_selected_year = df[df.year == selected_year]
 df_selected_year
+
+st.line_chart(df_selected_year, x='states', y='population')
