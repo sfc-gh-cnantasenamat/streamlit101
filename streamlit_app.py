@@ -21,6 +21,6 @@ selected_year = st.selectbox('Select a year', list(df.year.unique())[::-1])
 
 # Display data subset
 df_selected_year = df[df.year == selected_year]
-st.dataframe(df_selected_year, height=250)
+st.dataframe(df_selected_year, height=250, use_container_width=True)
 
 st.area_chart(df_selected_year, x='states', y='population')
