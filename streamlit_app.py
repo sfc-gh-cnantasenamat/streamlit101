@@ -14,7 +14,7 @@ t0 = time.time()
 df = pd.read_csv('data/us-population-2010-2019.csv', index_col=0)
 t1 = time.time()
 ms = (t1-t0)*1000
-st.write(ms)
+st.write(ms, 'milliseconds')
 
 # Year selectbox
 selected_year = st.selectbox('Select a year', list(df.year.unique())[::-1])
