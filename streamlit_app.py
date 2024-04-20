@@ -19,7 +19,7 @@ df = pd.read_csv('data/us-population-2010-2019.csv', index_col=0)
 #df = pd.read_csv('data/us-population-2010-2019.csv', index_col=0)
 #x1 = time.time()
 
-st.write('Not using st.cache_data', (x1-x0)*1000, 'milliseconds')
+#st.write('Not using st.cache_data', (x1-x0)*1000, 'milliseconds')
 
 # Using st.cache_data
 #t0 = time.time()
