@@ -13,8 +13,8 @@ st.title('🎈 My First Streamlit App')
 t0 = time.time()
 df = pd.read_csv('data/us-population-2010-2019.csv', index_col=0)
 t1 = time.time()
-
-st.write(t1-t0)
+ms = (t1-t0)*1000
+st.write(ms)
 
 # Year selectbox
 selected_year = st.selectbox('Select a year', list(df.year.unique())[::-1])
