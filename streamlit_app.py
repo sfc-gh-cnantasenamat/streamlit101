@@ -13,7 +13,7 @@ st.title('🎈 My First Streamlit App')
 
 # No caching of data
 x0 = time.time()
-# df = pd.read_csv('data/us-population-2010-2019.csv', index_col=0)
+df = pd.read_csv('data/us-population-2010-2019.csv', index_col=0)
 x1 = time.time()
 
 st.write('Not using st.cache_data', (x1-x0)*1000, 'milliseconds')
