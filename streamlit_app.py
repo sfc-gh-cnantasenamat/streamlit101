@@ -19,11 +19,11 @@ x1 = time.time()
 st.write('Not using st.cache_data', (x1-x0)*1000, 'milliseconds')
 
 # Caching data
+t0 = time.time()
 @st.cache_data
 def load_data():
   return pd.read_csv('data/us-population-2010-2019.csv', index_col=0)
 
-t0 = time.time()
 df = load_data()
 t1 = time.time()
 
