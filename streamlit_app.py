@@ -32,7 +32,7 @@ def load_data():
 df = load_data()
 t1 = time.time()
 
-with st.container('Benchmarks'):
+with st.expander('Benchmarks'):
   st.write('Not using st.cache_data', (x1-x0)*1000, 'milliseconds')
   st.write('Using st.cache_data', (t1-t0)*1000, 'milliseconds')
 
