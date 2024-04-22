@@ -31,8 +31,8 @@ df = load_data()
 t1 = time.time()
 
 with st.expander('Benchmarks'):
-  st.write('Not using st.cache_data', (x1-x0)*1000, 'milliseconds')
-  st.write('Using st.cache_data', (t1-t0)*1000, 'milliseconds')
+  st.write('Not using st.cache_data', round((x1-x0)*1000, 3), 'milliseconds')
+  st.write('Using st.cache_data', round((t1-t0)*1000, 3), 'milliseconds')
 
 
 # Year selection
