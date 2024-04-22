@@ -17,8 +17,7 @@ st.title('🎈 My First Streamlit App')
 # Caching data
 # Not using st.cache_data
 x0 = time.time()
-#df = pd.read_csv('data/us-population-2010-2019.csv', index_col=0)
-df = pd.read_csv('data/california_housing_train.csv')
+df = pd.read_csv('data/us-population-2010-2019.csv', index_col=0)
 x1 = time.time()
 
 
@@ -26,8 +25,7 @@ x1 = time.time()
 t0 = time.time()
 @st.cache_data
 def load_data():
-#  return pd.read_csv('data/us-population-2010-2019.csv', index_col=0)
-  return pd.read_csv('data/california_housing_train.csv')
+  return pd.read_csv('data/us-population-2010-2019.csv', index_col=0)
 
 df = load_data()
 t1 = time.time()
