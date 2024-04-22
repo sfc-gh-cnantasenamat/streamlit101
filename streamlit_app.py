@@ -11,26 +11,30 @@ st.title('🎈 My First Streamlit App')
 
 # Load CSV data
 
-df = pd.read_csv('data/us-population-2010-2019.csv', index_col=0)
+#df = pd.read_csv('data/us-population-2010-2019.csv', index_col=0)
+
 
 # Caching data
 # Not using st.cache_data
-#x0 = time.time()
+x0 = time.time()
 #df = pd.read_csv('data/us-population-2010-2019.csv', index_col=0)
-#x1 = time.time()
+df = pd.read_csv('data/california_housing_test.csv')
+x1 = time.time()
 
-#st.write('Not using st.cache_data', (x1-x0)*1000, 'milliseconds')
 
 # Using st.cache_data
-#t0 = time.time()
-#@st.cache_data
-#def load_data():
+t0 = time.time()
+@st.cache_data
+def load_data():
 #  return pd.read_csv('data/us-population-2010-2019.csv', index_col=0)
+  return pd.read_csv('data/california_housing_test.csv')
 
-#df = load_data()
-#t1 = time.time()
+df = load_data()
+t1 = time.time()
 
-#st.write('Using st.cache_data', (t1-t0)*1000, 'milliseconds')
+with st.container('Benchmarks')
+  st.write('Not using st.cache_data', (x1-x0)*1000, 'milliseconds')
+  st.write('Using st.cache_data', (t1-t0)*1000, 'milliseconds')
 
 
 # Year selection
