@@ -51,4 +51,4 @@ st.dataframe(df_selected_year, height=250, use_container_width=True)
 
 
 # Display chart
-st.area_chart(df_selected_year, x='states', y='population')
+st.bar_chart(df_selected_year, x='states', y='population')
