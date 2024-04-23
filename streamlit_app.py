@@ -2,7 +2,6 @@
 import streamlit as st
 import pandas as pd
 import time
-#import plotly.express as px
 
 #st.write('Hello world!')
 
@@ -30,10 +29,7 @@ def load_data():
 df = load_data()
 t1 = time.time()
 
-with st.expander('Benchmarks'):
-  st.write('Not using st.cache_data', round((x1-x0)*1000, 3), 'milliseconds')
-  st.write('Using st.cache_data', round((t1-t0)*1000, 3), 'milliseconds')
-
+# Results displayed at the bottom
 
 # Year selection
 # Using st.selectbox
@@ -52,3 +48,8 @@ st.dataframe(df_selected_year, height=250, use_container_width=True)
 
 # Display chart
 st.bar_chart(df_selected_year, x='states', y='population')
+
+
+#with st.expander('Benchmarks'):
+#  st.write('Not using st.cache_data', round((x1-x0)*1000, 3), 'milliseconds')
+#  st.write('Using st.cache_data', round((t1-t0)*1000, 3), 'milliseconds')
