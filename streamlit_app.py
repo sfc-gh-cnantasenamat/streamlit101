@@ -32,7 +32,7 @@ st.bar_chart(df_selected_year,
 
 st.header("Compare US state populations over time")
 states = st.multiselect("Pick your states", list(df.states.unique())[::-1])
-date_range = st.slider("Pick your date range", (2010, 2019), step=1000)
+date_range = st.slider(label="Pick your date range", value=(2010, 2019), step=1000)
 
 if states:
     chart_data = df[df['states'].isin(states)]
