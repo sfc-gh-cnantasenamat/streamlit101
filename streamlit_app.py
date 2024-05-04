@@ -11,6 +11,9 @@ def load_data():
 
 df = load_data()
 
+st.subheader("Inspect the data")
+st.data_editor(df)
+
 # Year selection
 # Using st.number_input
 #selected_year = st.number_input('Enter a year',
@@ -18,13 +21,14 @@ df = load_data()
 #                                value=2019)
 
 st.subheader("Compare populations in different US states in a single year")
+
 # Using st.selectbox
 selected_year = st.selectbox('Select a year',
                              list(df.year.unique())[::-1])
 
 # Display data subset
 df_selected_year = df[df.year == selected_year]
-st.dataframe(df_selected_year, height=250, use_container_width=True)
+# st.dataframe(df_selected_year, height=250, use_container_width=True)
 
 # Display chart
 st.bar_chart(df_selected_year,
@@ -51,7 +55,7 @@ if states:
     )
     
     st.altair_chart(c, use_container_width=True)
-    st.data_editor(chart_data[["states","population","year"]])
+    # st.data_editor(chart_data[["states","population","year"]])
 
 # st.write(chart_data)
 
