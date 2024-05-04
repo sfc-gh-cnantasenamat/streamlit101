@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd 
 import time
+import altair as alt
 
 st.header('My App')
 
@@ -29,6 +30,17 @@ st.bar_chart(df_selected_year,
              x='states',
              y='population')
 
-st.write(df.loc[df['states'] == "California"])
+ca_data = df.loc[df['states'] == "California"]
+ca_chart_data = pd.DataFrame(ca_data, columns=["year", "population"])
+
+c = (
+   alt.Chart(ca_chart_data)
+   .mark_circle()
+   .encode(x="year", y="population", size="population", color="population", tooltip=["year", "population"])
+)
+
+st.altair_chart(c, use_container_width=True)
+
+# st.write(df.loc[df['states'] == "California"])
 # st.subheader("California population over time")
 # st.line_chart(df.loc[df['states'] == "California"])
