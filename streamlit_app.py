@@ -92,7 +92,7 @@ st.write("Or Bokeh")
 p = figure(
     title='US state populations over time',
     x_axis_label='year',
-    y_axis_label='population'
+    y_axis_label='population',
     color='state')
 
 p.line(df['year'], df['population'], legend_label='Trend', line_width=2)
