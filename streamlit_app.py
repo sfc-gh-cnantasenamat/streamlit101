@@ -61,7 +61,7 @@ if states:
     #             y=alt.Y('population',scale=alt.Scale(domain=[30000000,50000000])))
     # )
     
-    # st.altair_chart(c, use_container_width=True)
+    st.altair_chart(c, use_container_width=True)
 
 # st.write(chart_data)
 
