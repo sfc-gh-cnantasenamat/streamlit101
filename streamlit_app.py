@@ -36,7 +36,7 @@ date_range = st.slider(
     "Pick your date range",
     2010, 2019, (2010, 2019))
 
-st.write(date_range)
+st.write(date_range[0])
 
 if states:
     chart_data = df[df['states'].isin(states)]
