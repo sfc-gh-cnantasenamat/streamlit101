@@ -34,14 +34,6 @@ ca_data = df.loc[df['states'] == "California"]
 ca_chart_data = pd.DataFrame(ca_data, columns=["year", "population"])
 ca_chart_data['year'] = ca_chart_data['year'].astype(str)
 
-# c = (
-#    alt.Chart(ca_chart_data)
-#     .mark_line()
-#     .encode(alt.X('year',scale=alt.Scale(domain=[2010, 2019])), 
-#             alt.Y('population',scale=alt.Scale(domain=[37000000,40000000])),
-#             tooltip=["year", "population"])
-# )
-
 c = (
    alt.Chart(ca_chart_data)
     .mark_line()
@@ -52,8 +44,5 @@ c = (
 # st.write(ca_data['population'].min())
 # st.write(ca_data['population'].max())
 
+st.subheader("California population over time")
 st.altair_chart(c, use_container_width=True)
-
-# st.write(df.loc[df['states'] == "California"])
-# st.subheader("California population over time")
-# st.line_chart(df.loc[df['states'] == "California"])
