@@ -46,7 +46,7 @@ if selected_year:
                  y='population')
 
 st.subheader("4. How about a line chart? 📉")
-df_line_chart = df
+df_line_chart = df.copy()
 df_line_chart['year'] = df_line_chart['year'].astype(str)
 c = (
    alt.Chart(df_line_chart)
