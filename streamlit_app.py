@@ -36,7 +36,7 @@ ca_chart_data = pd.DataFrame(ca_data, columns=["year", "population"])
 c = (
    alt.Chart(ca_chart_data)
    .mark_circle()
-   .encode(x="year", y="population", size="population", color="population", tooltip=["year", "population"])
+   .encode(x="year", y="population", tooltip=["year", "population"])
 )
 
 st.altair_chart(c, use_container_width=True)
