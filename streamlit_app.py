@@ -80,8 +80,8 @@ if states:
     
     st.altair_chart(c, use_container_width=True)
 
-st.subheader("6. Or experiment with Streamlit's other plotting options")
-st.write("Like Plotly")
+st.subheader("6. Or experiment with Streamlit's other charting options 🧪")
+st.write("Like Plotly 🤩")
 
 fig = px.line(df, x="year", y="population", color="states", title='US state populations over time')
 st.plotly_chart(fig, use_container_width=True)
