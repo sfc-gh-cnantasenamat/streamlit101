@@ -29,5 +29,6 @@ st.bar_chart(df_selected_year,
              x='states',
              y='population')
 
-st.subheader("California population over time")
-st.line_chart(df.loc[df['states'] == "California"])
+st.write(df.loc[df['states'] == "California"])
+# st.subheader("California population over time")
+# st.line_chart(df.loc[df['states'] == "California"])
