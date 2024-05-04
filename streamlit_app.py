@@ -36,7 +36,9 @@ ca_chart_data = pd.DataFrame(ca_data, columns=["year", "population"])
 c = (
    alt.Chart(ca_chart_data)
     .mark_circle()
-    .encode(alt.X('year',scale=alt.Scale(domain=[2010, 2019])), y="population", tooltip=["year", "population"])
+    .encode(alt.X('year',scale=alt.Scale(domain=[2010, 2019])), 
+            alt.Y('population',scale=alt.Scale(domain=[37000000,40000000])),
+            tooltip=["year", "population"])
 )
 
 
@@ -44,8 +46,8 @@ c = (
 # c.encode(Y('population', scale=Scale(domain=[2010, 2019])))
 # c.encode(X('year', scale=Scale(domain=[2010, 2019])))
 
-st.write(ca_data['population'].min())
-st.write(ca_data['population'].max())
+# st.write(ca_data['population'].min())
+# st.write(ca_data['population'].max())
 
 st.altair_chart(c, use_container_width=True)
 
