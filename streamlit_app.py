@@ -48,7 +48,7 @@ if states:
     c = (
        alt.Chart(chart_data)
         .mark_line()
-        .encode(x=alt.X('year:T'), 
+        .encode(x=alt.X('year'), 
                 y=alt.Y('population'),
                 color='states',)
     )
