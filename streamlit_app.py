@@ -3,7 +3,7 @@ import pandas as pd
 import time
 import altair as alt
 
-st.header('My App')
+st.header('My first Streamlit app 🎈')
 
 @st.cache_data
 def load_data():
@@ -17,6 +17,7 @@ df = load_data()
 #                                placeholder='Enter a year from 2010-2019',
 #                                value=2019)
 
+st.header("Compare populations in different US states in a single year")
 # Using st.selectbox
 selected_year = st.selectbox('Select a year',
                              list(df.year.unique())[::-1])
