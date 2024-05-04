@@ -59,14 +59,11 @@ c = (
             color='states',)
 )
 
+st.write("US state populations over time")
 st.altair_chart(c, use_container_width=True)
 
-
-# st.subheader("Compare populations in different US states in a single year")
-
-
-
-st.subheader("Compare US state populations over time")
+st.subheader("5. Sprinkle in more interactivity 🪄")
+# st.subheader("Compare US state populations over time")
 states = st.multiselect("Pick your states", list(df.states.unique())[::-1])
 date_range = st.slider(
     "Pick your date range",
@@ -86,7 +83,6 @@ if states:
     )
     
     st.altair_chart(c, use_container_width=True)
-    # st.data_editor(chart_data[["states","population","year"]])
 
 # st.write(chart_data)
 
