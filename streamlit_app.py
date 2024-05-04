@@ -49,15 +49,15 @@ if selected_year:
 
 st.subheader("4. How about a line chart? 📉")
 
-    c = (
-       alt.Chart(df)
-        .mark_line()
-        .encode(x=alt.X('year'), 
-                y=alt.Y('population'),
-                color='states',)
-    )
-    
-    st.altair_chart(c, use_container_width=True)
+c = (
+   alt.Chart(df)
+    .mark_line()
+    .encode(x=alt.X('year'), 
+            y=alt.Y('population'),
+            color='states',)
+)
+
+st.altair_chart(c, use_container_width=True)
 
 
 # st.subheader("Compare populations in different US states in a single year")
