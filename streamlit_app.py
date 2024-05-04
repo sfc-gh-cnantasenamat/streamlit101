@@ -17,7 +17,7 @@ df = load_data()
 #                                placeholder='Enter a year from 2010-2019',
 #                                value=2019)
 
-st.header("Compare populations in different US states in a single year")
+st.subheader("Compare populations in different US states in a single year")
 # Using st.selectbox
 selected_year = st.selectbox('Select a year',
                              list(df.year.unique())[::-1])
@@ -31,19 +31,16 @@ st.bar_chart(df_selected_year,
              x='states',
              y='population')
 
-st.header("Compare US state populations over time")
+st.subheader("Compare US state populations over time")
 states = st.multiselect("Pick your states", list(df.states.unique())[::-1])
 date_range = st.slider(
     "Pick your date range",
     2010, 2019, (2010, 2019))
 
-st.write(date_range[0])
-
 if states:
     chart_data = df[df['states'].isin(states)]
     chart_data = chart_data[chart_data['year'].between(date_range[0],date_range[1])]
     chart_data['year'] = chart_data['year'].astype(str)
-
 
     c = (
        alt.Chart(chart_data)
