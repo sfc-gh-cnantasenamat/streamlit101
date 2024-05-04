@@ -43,13 +43,15 @@ if states:
     chart_data = chart_data[chart_data['year'].between(daterange[0],daterange[1])]
     chart_data['year'] = chart_data['year'].astype(str)
 
-    c = (
-       alt.Chart(chart_data)
-        .mark_line()
-        .encode(x=alt.X('year:T'), 
-                y=alt.Y('population'),
-                color='states',)
-    )
+    st.write(chart_data)
+
+    # c = (
+    #    alt.Chart(chart_data)
+    #     .mark_line()
+    #     .encode(x=alt.X('year:T'), 
+    #             y=alt.Y('population'),
+    #             color='states',)
+    # )
     
     
     # c = (
@@ -59,7 +61,7 @@ if states:
     #             y=alt.Y('population',scale=alt.Scale(domain=[30000000,50000000])))
     # )
     
-    st.altair_chart(c, use_container_width=True)
+    # st.altair_chart(c, use_container_width=True)
 
 # st.write(chart_data)
 
