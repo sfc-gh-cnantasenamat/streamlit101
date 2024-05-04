@@ -30,28 +30,29 @@ st.bar_chart(df[['year','states','population']],
 
 st.subheader("3. Now make it interactive 🪄")
 
-st.caption("with `st.selectbox`")
-
 # Using st.selectbox
 selected_year = st.selectbox('Select a year',
                              list(df.year.unique())[::-1])
 
-st.caption("or maybe you prefer`st.slider`")
+st.write("Or maybe you prefer a slider 🛝")
 slider_selected_year = st.slider("Select a year", 2010, 2019)
+
+if selected_year:
+    # Display data subset
+    df_selected_year = df[df.year == selected_year]
+    # st.dataframe(df_selected_year, height=250, use_container_width=True)
+    
+    # Display chart
+    st.bar_chart(df_selected_year,
+                 x='states',
+                 y='population')
+
 
 
 
 st.subheader("Compare populations in different US states in a single year")
 
 
-# Display data subset
-df_selected_year = df[df.year == selected_year]
-# st.dataframe(df_selected_year, height=250, use_container_width=True)
-
-# Display chart
-st.bar_chart(df_selected_year,
-             x='states',
-             y='population')
 
 st.subheader("Compare US state populations over time")
 states = st.multiselect("Pick your states", list(df.states.unique())[::-1])
