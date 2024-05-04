@@ -3,6 +3,7 @@ import pandas as pd
 import time
 import altair as alt
 import plotly.express as px
+from bokeh.plotting import figure
 
 st.header('My first Streamlit app 🎈')
 
@@ -85,3 +86,14 @@ st.write("Like Plotly 🤩")
 
 fig = px.line(df, x="year", y="population", color="states", title='US state populations over time')
 st.plotly_chart(fig, use_container_width=True)
+
+st.write("Or Bokeh")
+
+p = figure(
+    title='US state populations over time',
+    x_axis_label='year',
+    y_axis_label='population'
+    color='state')
+
+p.line(df['year'], df['population'], legend_label='Trend', line_width=2)
+st.bokeh_chart(p, use_container_width=True)
