@@ -28,6 +28,16 @@ st.bar_chart(df[['year','states','population']],
             x='states',
             y='population')
 
+st.subheader("3. Now make it interactive 🪄")
+
+st.caption("with `st.selectbox`")
+
+# Using st.selectbox
+selected_year = st.selectbox('Select a year',
+                             list(df.year.unique())[::-1])
+
+st.caption("with `st.selectbox`")
+
 
 
 st.subheader("Compare populations in different US states in a single year")
