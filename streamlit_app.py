@@ -49,11 +49,11 @@ if selected_year:
 st.subheader("4. How about a line chart? 📉")
 
 df_line_chart = df
-df_line_chart['year'] = df['year'].astype(str)
+# df_line_chart['year'] = df['year'].astype(str)
 c = (
    alt.Chart(df)
     .mark_line()
-    .encode(x=alt.X('year'), 
+    .encode(x=alt.X('year:T'), 
             y=alt.Y('population'),
             color='states',)
 )
@@ -86,13 +86,3 @@ st.write("Like Plotly 🤩")
 
 fig = px.line(df, x="year", y="population", color="states", title='US state populations over time')
 st.plotly_chart(fig, use_container_width=True)
-
-# st.write("Or Bokeh")
-
-# p = figure(
-#     title='US state populations over time',
-#     x_axis_label='year',
-#     y_axis_label='population')
-
-# p.line(df['year'], df['population'], legend_label='Trend', line_width=2)
-# st.bokeh_chart(p, use_container_width=True)
