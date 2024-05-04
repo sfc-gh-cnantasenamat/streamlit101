@@ -53,7 +53,7 @@ if states:
     )
     
     st.altair_chart(c, use_container_width=True)
-    st.data_editor(chart_data)
+    st.data_editor(chart_data["states"],chart_data["population"],chart_data["year"])
 
 # st.write(chart_data)
 
