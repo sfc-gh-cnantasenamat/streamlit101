@@ -44,8 +44,8 @@ c = (
 # c.encode(Y('population', scale=Scale(domain=[2010, 2019])))
 # c.encode(X('year', scale=Scale(domain=[2010, 2019])))
 
-ca_data['population'].min(axis=0)
-ca_data['population'].max(axis=0)
+ca_data['population'].min()
+ca_data['population'].max()
 
 st.altair_chart(c, use_container_width=True)
 
