@@ -44,7 +44,7 @@ ca_chart_data = pd.DataFrame(ca_data, columns=["year", "population"])
 c = (
    alt.Chart(ca_chart_data)
     .mark_line()
-    .encode(x='year', 
+    .encode(x='year:T', 
             y=alt.Y('population',scale=alt.Scale(domain=[37000000,40000000])))
 )
 
