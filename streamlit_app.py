@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd 
 import time
 import altair as alt
+import plotly.express as px
 
 st.header('My first Streamlit app 🎈')
 
@@ -14,12 +15,6 @@ df = load_data()
 st.subheader("1. Inspect the data 🔍")
 st.write("`st.data_editor` allows us to display AND edit data")
 st.data_editor(df)
-
-# Year selection
-# Using st.number_input
-#selected_year = st.number_input('Enter a year',
-#                                placeholder='Enter a year from 2010-2019',
-#                                value=2019)
 
 st.subheader("2. Get started with a simple bar chart 📊")
 st.write("Let's chart US state population data from the year 2019")
@@ -37,10 +32,13 @@ selected_year = st.selectbox('Select a year',
 # st.write("Or maybe you prefer a slider 🛝")
 # slider_selected_year = st.slider("Select a year", 2010, 2019)
 
+# st.write("Or `st.number_input`")
+#selected_year = st.number_input('Enter a year',
+#                                placeholder='Enter a year from 2010-2019',
+#                                value=2019)
+
 if selected_year:
-    # Display data subset
     df_selected_year = df[df.year == selected_year]
-    # st.dataframe(df_selected_year, height=250, use_container_width=True)
     
     # Display chart
     st.bar_chart(df_selected_year,
@@ -59,11 +57,9 @@ c = (
             color='states',)
 )
 
-st.write("US state populations over time")
 st.altair_chart(c, use_container_width=True)
 
 st.subheader("5. Sprinkle in more interactivity 🪄")
-# st.subheader("Compare US state populations over time")
 states = st.multiselect("Pick your states", list(df.states.unique())[::-1])
 date_range = st.slider(
     "Pick your date range",
@@ -84,29 +80,8 @@ if states:
     
     st.altair_chart(c, use_container_width=True)
 
-# st.write(chart_data)
+st.subheader("6. Or experiment with Streamlit's other plotting options")
+st.write("Like Plotly")
 
-# ca_data = df.loc[df['states'] == "California"]
-# ca_chart_data = pd.DataFrame(ca_data, columns=["year", "population"])
-# ca_chart_data['year'] = ca_chart_data['year'].astype(str)
-
-# c = (
-#    alt.Chart(ca_chart_data)
-#     .mark_line()
-#     .encode(x=alt.X('year:T'), 
-#             y=alt.Y('population',scale=alt.Scale(domain=[37000000,40000000])))
-# )
-
-# # st.write(ca_data['population'].min())
-# # st.write(ca_data['population'].max())
-    #chart_data = chart_data[(chart_data['year'] >= daterange[0]) & (chart_data['year'] <= daterange[1])]
-
-# st.subheader("California population over time")
-# st.altair_chart(c, use_container_width=True)
-
-    # c = (
-    #    alt.Chart(chart_data)
-    #     .mark_line()
-    #     .encode(x=alt.X('year:T'), 
-    #             y=alt.Y('population',scale=alt.Scale(domain=[30000000,50000000])))
-    # )
+fig = px.line(df, x="year", y="population", color="states", title='US state populations over time')
+st.plotly_chart(fig, use_container_width=True)
