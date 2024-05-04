@@ -36,15 +36,10 @@ ca_chart_data = pd.DataFrame(ca_data, columns=["year", "population"])
 c = (
    alt.Chart(ca_chart_data)
     .mark_line()
-    .encode(alt.X('year:T',scale=alt.Scale(domain=[2010, 2019])), 
+    .encode(alt.X('year',scale=alt.Scale(domain=[2010, 2019])), 
             alt.Y('population',scale=alt.Scale(domain=[37000000,40000000])),
             tooltip=["year", "population"])
 )
-
-
-
-# c.encode(Y('population', scale=Scale(domain=[2010, 2019])))
-# c.encode(X('year', scale=Scale(domain=[2010, 2019])))
 
 # st.write(ca_data['population'].min())
 # st.write(ca_data['population'].max())
