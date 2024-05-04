@@ -41,7 +41,7 @@ if states:
        alt.Chart(chart_data)
         .mark_line()
         .encode(x=alt.X('year:T'), 
-                y=alt.Y('population')
+                y=alt.Y('population'))
     )
     
     
