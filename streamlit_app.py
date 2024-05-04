@@ -12,7 +12,7 @@ def load_data():
 df = load_data()
 
 st.subheader("1. Inspect the data 🔍")
-st.caption("`st.data_editor` allows us to display AND edit data")
+st.write("`st.data_editor` allows us to display AND edit data")
 st.data_editor(df)
 
 # Year selection
@@ -22,7 +22,7 @@ st.data_editor(df)
 #                                value=2019)
 
 st.subheader("2. Get started with a simple bar chart 📊")
-st.caption("Let's chart US state population data from the year 2019")
+st.write("Let's chart US state population data from the year 2019")
 
 st.bar_chart(df[['year','states','population']],
             x='states',
