@@ -43,7 +43,6 @@ if states:
     chart_data = chart_data[chart_data['year'].between(date_range[0],date_range[1])]
     chart_data['year'] = chart_data['year'].astype(str)
 
-    st.write(chart_data)
 
     c = (
        alt.Chart(chart_data)
@@ -53,15 +52,8 @@ if states:
                 color='states',)
     )
     
-    
-    # c = (
-    #    alt.Chart(chart_data)
-    #     .mark_line()
-    #     .encode(x=alt.X('year:T'), 
-    #             y=alt.Y('population',scale=alt.Scale(domain=[30000000,50000000])))
-    # )
-    
     st.altair_chart(c, use_container_width=True)
+    st.data_editor(chart_data)
 
 # st.write(chart_data)
 
@@ -82,3 +74,10 @@ if states:
 
 # st.subheader("California population over time")
 # st.altair_chart(c, use_container_width=True)
+
+    # c = (
+    #    alt.Chart(chart_data)
+    #     .mark_line()
+    #     .encode(x=alt.X('year:T'), 
+    #             y=alt.Y('population',scale=alt.Scale(domain=[30000000,50000000])))
+    # )
