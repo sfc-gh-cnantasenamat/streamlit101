@@ -39,8 +39,14 @@ c = (
     .encode(alt.X('year',scale=alt.Scale(domain=[2010, 2019])), y="population", tooltip=["year", "population"])
 )
 
+
+
 # c.encode(Y('population', scale=Scale(domain=[2010, 2019])))
 # c.encode(X('year', scale=Scale(domain=[2010, 2019])))
+
+st.write(ca_data['population'].min)
+st.write(ca_data['population'].max)
+
 st.altair_chart(c, use_container_width=True)
 
 # st.write(df.loc[df['states'] == "California"])
