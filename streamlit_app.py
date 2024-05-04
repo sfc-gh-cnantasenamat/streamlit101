@@ -21,6 +21,15 @@ st.data_editor(df)
 #                                placeholder='Enter a year from 2010-2019',
 #                                value=2019)
 
+st.subheader("2. Get started with a simple bar chart 📊")
+st.caption("Let's chart US state population data from the year 2019")
+
+st.bar_chart(df[['year','states','population']],
+            x='states',
+            y='population')
+
+
+
 st.subheader("Compare populations in different US states in a single year")
 
 # Using st.selectbox
