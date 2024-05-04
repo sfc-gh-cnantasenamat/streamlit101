@@ -36,7 +36,7 @@ ca_chart_data = pd.DataFrame(ca_data, columns=["year", "population"])
 c = (
    alt.Chart(ca_chart_data)
     .mark_circle()
-    .encode(alt.X('year:N',scale=alt.Scale(domain=[2010, 2019])), 
+    .encode(alt.X('year:T',scale=alt.Scale(domain=[2010, 2019])), 
             alt.Y('population',scale=alt.Scale(domain=[37000000,40000000])),
             tooltip=["year", "population"])
 )
