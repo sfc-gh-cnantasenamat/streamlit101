@@ -33,10 +33,18 @@ st.bar_chart(df_selected_year,
 ca_data = df.loc[df['states'] == "California"]
 ca_chart_data = pd.DataFrame(ca_data, columns=["year", "population"])
 
+# c = (
+#    alt.Chart(ca_chart_data)
+#     .mark_line()
+#     .encode(alt.X('year',scale=alt.Scale(domain=[2010, 2019])), 
+#             alt.Y('population',scale=alt.Scale(domain=[37000000,40000000])),
+#             tooltip=["year", "population"])
+# )
+
 c = (
    alt.Chart(ca_chart_data)
     .mark_line()
-    .encode(alt.X('year',scale=alt.Scale(domain=[2010, 2019])), 
+    .encode(x='year', 
             alt.Y('population',scale=alt.Scale(domain=[37000000,40000000])),
             tooltip=["year", "population"])
 )
