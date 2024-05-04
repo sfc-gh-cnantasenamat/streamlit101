@@ -67,7 +67,7 @@ date_range = st.slider(
 
 if states:
     chart_data = df[df['states'].isin(states)]
-    # chart_data = chart_data[chart_data['year'].between(date_range[0],date_range[1])]
+    chart_data = chart_data[chart_data['year'].between(date_range[0],date_range[1])]
     chart_data['year'] = chart_data['year'].astype(str)
 
     c = (
