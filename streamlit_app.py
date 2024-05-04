@@ -50,7 +50,8 @@ if selected_year:
 
 st.subheader("4. How about a line chart? 📉")
 
-df['year'] = df['year'].astype(str)
+df_line_chart = df
+df_line_chart['year'] = df['year'].astype(str)
 c = (
    alt.Chart(df)
     .mark_line()
