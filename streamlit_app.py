@@ -36,13 +36,21 @@ states = st.multiselect("Pick your states", list(df.states.unique())[::-1])
 if states:
     chart_data = df[df['states'].isin(states)]
     chart_data['year'] = chart_data['year'].astype(str)
-    
+
     c = (
        alt.Chart(chart_data)
         .mark_line()
         .encode(x=alt.X('year:T'), 
-                y=alt.Y('population',scale=alt.Scale(domain=[30000000,50000000])))
+                y=alt.Y('population')
     )
+    
+    
+    # c = (
+    #    alt.Chart(chart_data)
+    #     .mark_line()
+    #     .encode(x=alt.X('year:T'), 
+    #             y=alt.Y('population',scale=alt.Scale(domain=[30000000,50000000])))
+    # )
     
     st.altair_chart(c, use_container_width=True)
 
