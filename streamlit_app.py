@@ -30,9 +30,11 @@ st.bar_chart(df_selected_year,
              x='states',
              y='population')
 
-st.header("Compare state populations over time")
-st.multiselect("Pick your states", list(df.states.unique())[::-1])
+st.header("Compare US state populations over time")
+states = st.multiselect("Pick your states", list(df.states.unique())[::-1])
 
+for state in states:
+    st.write(state)
 
 ca_data = df.loc[df['states'] == "California"]
 ca_chart_data = pd.DataFrame(ca_data, columns=["year", "population"])
