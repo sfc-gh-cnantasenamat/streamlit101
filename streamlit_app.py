@@ -36,15 +36,13 @@ st.caption("with `st.selectbox`")
 selected_year = st.selectbox('Select a year',
                              list(df.year.unique())[::-1])
 
-st.caption("with `st.selectbox`")
+st.caption("or maybe you prefer`st.slider`")
+slider_selected_year = st.slider("Select a year", 2010, 2019)
 
 
 
 st.subheader("Compare populations in different US states in a single year")
 
-# Using st.selectbox
-selected_year = st.selectbox('Select a year',
-                             list(df.year.unique())[::-1])
 
 # Display data subset
 df_selected_year = df[df.year == selected_year]
