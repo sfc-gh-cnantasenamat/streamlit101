@@ -32,6 +32,7 @@ st.bar_chart(df_selected_year,
 
 ca_data = df.loc[df['states'] == "California"]
 ca_chart_data = pd.DataFrame(ca_data, columns=["year", "population"])
+ca_chart_data['year'] = ca_chart_data['year'].astype(str)
 
 # c = (
 #    alt.Chart(ca_chart_data)
