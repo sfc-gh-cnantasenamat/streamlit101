@@ -46,17 +46,15 @@ if selected_year:
                  y='population')
 
 st.subheader("4. How about a line chart? 📉")
-
 df_line_chart = df
 df_line_chart['year'] = df_line_chart['year'].astype(str)
 c = (
-   alt.Chart(df)
+   alt.Chart(df_line_chart)
     .mark_line()
     .encode(x=alt.X('year'), 
             y=alt.Y('population'),
             color='states',)
 )
-
 st.altair_chart(c, use_container_width=True)
 
 st.subheader("5. Sprinkle in more interactivity 🪄")
