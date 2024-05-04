@@ -11,7 +11,8 @@ def load_data():
 
 df = load_data()
 
-st.subheader("Inspect the data")
+st.subheader("1. Inspect the data 🔍")
+st.caption("`st.data_editor` allows us to display AND edit data")
 st.data_editor(df)
 
 # Year selection
