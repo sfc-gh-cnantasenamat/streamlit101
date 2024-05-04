@@ -40,7 +40,7 @@ st.write(date_range[0])
 
 if states:
     chart_data = df[df['states'].isin(states)]
-    chart_data = chart_data[chart_data['year'].between(daterange[0],daterange[1])
+    chart_data = chart_data[chart_data['year'].between(daterange[0],daterange[1])]
     chart_data['year'] = chart_data['year'].astype(str)
 
     c = (
