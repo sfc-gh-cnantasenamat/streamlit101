@@ -19,7 +19,6 @@ st.data_editor(df)
 
 st.subheader("2. Get started with a simple bar chart 📊")
 st.write("Let's chart US state population data from the year 2019")
-
 st.bar_chart(df[['year','states','population']],
             x='states',
             y='population')
@@ -49,11 +48,11 @@ if selected_year:
 st.subheader("4. How about a line chart? 📉")
 
 df_line_chart = df
-# df_line_chart['year'] = df['year'].astype(str)
+df_line_chart['year'] = df_line_chart['year'].astype(str)
 c = (
    alt.Chart(df)
     .mark_line()
-    .encode(x=alt.X('year:T'), 
+    .encode(x=alt.X('year'), 
             y=alt.Y('population'),
             color='states',)
 )
