@@ -34,22 +34,32 @@ st.header("Compare US state populations over time")
 states = st.multiselect("Pick your states", list(df.states.unique())[::-1])
 
 chart_data = df[df['states'].isin(states)]
-# chart_data = df['states'].isin(states)
-st.write(chart_data)
-
-ca_data = df.loc[df['states'] == "California"]
-ca_chart_data = pd.DataFrame(ca_data, columns=["year", "population"])
-ca_chart_data['year'] = ca_chart_data['year'].astype(str)
+chart_data['year'] = chart_data['year'].astype(str)
 
 c = (
-   alt.Chart(ca_chart_data)
+   alt.Chart(chart_data)
     .mark_line()
     .encode(x=alt.X('year:T'), 
-            y=alt.Y('population',scale=alt.Scale(domain=[37000000,40000000])))
+            y=alt.Y('population',scale=alt.Scale(domain=[30000000,50000000])))
 )
 
-# st.write(ca_data['population'].min())
-# st.write(ca_data['population'].max())
-
-st.subheader("California population over time")
 st.altair_chart(c, use_container_width=True)
+
+# st.write(chart_data)
+
+# ca_data = df.loc[df['states'] == "California"]
+# ca_chart_data = pd.DataFrame(ca_data, columns=["year", "population"])
+# ca_chart_data['year'] = ca_chart_data['year'].astype(str)
+
+# c = (
+#    alt.Chart(ca_chart_data)
+#     .mark_line()
+#     .encode(x=alt.X('year:T'), 
+#             y=alt.Y('population',scale=alt.Scale(domain=[37000000,40000000])))
+# )
+
+# # st.write(ca_data['population'].min())
+# # st.write(ca_data['population'].max())
+
+# st.subheader("California population over time")
+# st.altair_chart(c, use_container_width=True)
