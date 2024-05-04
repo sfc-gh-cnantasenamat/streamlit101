@@ -36,11 +36,11 @@ ca_chart_data = pd.DataFrame(ca_data, columns=["year", "population"])
 c = (
    alt.Chart(ca_chart_data)
    .mark_circle()
-   .encode(x="year", y="population", tooltip=["year", "population"])
+   .encode(alt.X('year',scale=alt.Scale(domain=[2010, 2019]))), y="population", tooltip=["year", "population"])
 )
 
 # c.encode(Y('population', scale=Scale(domain=[2010, 2019])))
-c.encode(Y('year', scale=Scale(domain=[2010, 2019])))
+# c.encode(X('year', scale=Scale(domain=[2010, 2019])))
 st.altair_chart(c, use_container_width=True)
 
 # st.write(df.loc[df['states'] == "California"])
