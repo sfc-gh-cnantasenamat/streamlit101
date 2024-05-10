@@ -18,7 +18,7 @@ st.write("`st.data_editor` allows us to display AND edit data")
 st.data_editor(df)
 
 st.header("2. Get started with a simple bar chart 📊")
-st.write("Let's chart US state population data from the year 2019")
+st.write("Let's chart the US state population data from the year 2019")
 st.bar_chart(df[['year','states','population']],
             x='states',
             y='population')
