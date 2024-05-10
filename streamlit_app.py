@@ -1,51 +1,77 @@
 import streamlit as st
 import pandas as pd 
 import time
+import altair as alt
 
-st.header('My App')
+st.header('My first Streamlit app 🎈')
 
-# Load data
-#df = pd.read_csv('https://github.com/dataprofessor/population-dashboard/raw/master/data/us-population-2010-2019-reshaped.csv', index_col=0)
-#df
-
-# Caching data experiment
-
-# Not using st.cache_data
-#x0 = time.time()
-#df1 = pd.read_csv('https://github.com/dataprofessor/population-dashboard/raw/master/data/us-population-2010-2019-reshaped.csv', index_col=0)
-#x1 = time.time()
-
-# Using st.cache_data
-#t0 = time.time()
 @st.cache_data
 def load_data():
     return pd.read_csv('https://github.com/dataprofessor/population-dashboard/raw/master/data/us-population-2010-2019-reshaped.csv', index_col=0)
 
-# df2 = load_data()
-#t1 = time.time()
-
-# Benchmark results
-#with st.expander('Benchmark results'):
-#    st.write('Not using st.cache_data', round((x1-x0)*1000, 3), 'milliseconds')
-#    st.write('Using st.cache_data', round((t1-t0)*1000, 3), 'milliseconds')
-
 df = load_data()
 
-# Year selection
-# Using st.number_input
-#selected_year = st.number_input('Enter a year',
-#                                placeholder='Enter a year from 2010-2019',
-#                                value=2019)
+st.subheader("1. Inspect the data 🔍")
+st.write("`st.data_editor` allows us to display AND edit data")
+st.data_editor(df)
+
+st.subheader("2. Get started with a simple bar chart 📊")
+st.write("Let's chart US state population data from the year 2019")
+st.bar_chart(df[['year','states','population']],
+            x='states',
+            y='population')
+
+st.subheader("3. Now make it interactive 🪄")
 
 # Using st.selectbox
 selected_year = st.selectbox('Select a year',
                              list(df.year.unique())[::-1])
 
-# Display data subset
-df_selected_year = df[df.year == selected_year]
-st.dataframe(df_selected_year, height=250, use_container_width=True)
+# st.write("Or maybe you prefer a slider 🛝")
+# slider_selected_year = st.slider("Select a year", 2010, 2019)
 
-# Display chart
-st.bar_chart(df_selected_year,
-             x='states',
-             y='population')
+# st.write("Or `st.number_input`")
+#selected_year = st.number_input('Enter a year',
+#                                placeholder='Enter a year from 2010-2019',
+#                                value=2019)
+
+if selected_year:
+    df_selected_year = df[df.year == selected_year]
+    
+    # Display chart
+    st.bar_chart(df_selected_year,
+                 x='states',
+                 y='population')
+
+st.subheader("4. How about a line chart? 📉")
+df_line_chart = df.copy()
+df_line_chart['year'] = df_line_chart['year'].astype(str)
+c = (
+   alt.Chart(df_line_chart)
+    .mark_line()
+    .encode(x=alt.X('year'), 
+            y=alt.Y('population'),
+            color='states',)
+)
+st.altair_chart(c, use_container_width=True)
+
+st.subheader("5. Sprinkle in more interactivity 🪄")
+states = st.multiselect("Pick your states", list(df.states.unique())[::-1], "California")
+date_range = st.slider(
+    "Pick your date range",
+    2010, 2019, (2010, 2019))
+
+if states:
+    chart_data = df[df['states'].isin(states)]
+    chart_data = chart_data[chart_data['year'].between(date_range[0],date_range[1])]
+    chart_data['year'] = chart_data['year'].astype(str)
+
+    c = (
+       alt.Chart(chart_data)
+        .mark_line()
+        .encode(x=alt.X('year'), 
+                y=alt.Y('population'),
+                color='states',)
+    )
+    
+    st.altair_chart(c, use_container_width=True)
