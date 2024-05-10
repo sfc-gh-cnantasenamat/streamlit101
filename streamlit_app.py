@@ -17,13 +17,13 @@ st.header("1. Inspect the data 🔍")
 st.write("`st.data_editor` allows us to display AND edit data")
 st.data_editor(df)
 
-st.subheader("2. Get started with a simple bar chart 📊")
+st.header("2. Get started with a simple bar chart 📊")
 st.write("Let's chart US state population data from the year 2019")
 st.bar_chart(df[['year','states','population']],
             x='states',
             y='population')
 
-st.subheader("3. Now make it interactive 🪄")
+st.header("3. Now make it interactive 🪄")
 st.write("It's your turn to select a year")
 
 # Using st.selectbox
@@ -46,7 +46,7 @@ if selected_year:
                  x='states',
                  y='population')
 
-st.subheader("4. How about a line chart? 📉")
+st.header("4. How about a line chart? 📉")
 df_line_chart = df.copy()
 df_line_chart['year'] = df_line_chart['year'].astype(str)
 c = (
@@ -58,7 +58,7 @@ c = (
 )
 st.altair_chart(c, use_container_width=True)
 
-st.subheader("5. Sprinkle in more interactivity 🪄")
+st.header("5. Sprinkle in more interactivity 🪄")
 states = st.multiselect("Pick your states", list(df.states.unique())[::-1], "California")
 date_range = st.slider(
     "Pick your date range",
