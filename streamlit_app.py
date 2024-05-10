@@ -30,10 +30,10 @@ st.write("It's your turn to select a year")
 selected_year = st.selectbox('Select a year',
                              list(df.year.unique())[::-1])
 
-# st.write("Or maybe you prefer a slider 🛝")
+# Using st.slider 🛝
 # selected_year = st.slider("Select a year", 2010, 2019)
 
-# st.write("Or `st.number_input`")
+# Using st.number_input
 #selected_year = st.number_input('Enter a year',
 #                                placeholder='Enter a year from 2010-2019',
 #                                value=2019)
