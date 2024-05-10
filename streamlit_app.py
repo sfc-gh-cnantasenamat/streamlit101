@@ -60,6 +60,7 @@ c = (
 st.altair_chart(c, use_container_width=True)
 
 st.header("5. Sprinkle in more interactivity 🪄")
+st.write("Use `st.multiselect` and `st.slider` for data filter before charting")
 states = st.multiselect("Pick your states", list(df.states.unique())[::-1], "California")
 date_range = st.slider(
     "Pick your date range",
