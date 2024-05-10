@@ -47,6 +47,7 @@ if selected_year:
                  y='population')
 
 st.header("4. How about a line chart? 📉")
+st.write("Track changes over time")
 df_line_chart = df.copy()
 df_line_chart['year'] = df_line_chart['year'].astype(str)
 c = (
